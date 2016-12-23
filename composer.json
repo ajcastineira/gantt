@@ -1,0 +1,22 @@
+{
+    "name": "sincco/gantt",
+    "description": "PHP Gantt Creator Class",
+    
+    "license": "MIT",
+    "keywords": ["gantt","class","sfphp","sincco"],
+    "version": "1.0.1",
+    "require": {
+        "php": "^5.3.3 || ^7.0"
+    },
+    "authors": [
+        {
+            "name": "Ivan Miranda",
+            "email": "ivan.miranda@sincco.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sincco\\Tools\\": "src"
+        }
+    }
+}
