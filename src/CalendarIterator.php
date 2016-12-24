@@ -266,8 +266,7 @@ class Calendar {
     return new CalendarDay($year, $month, $day);    
   }
   
-  function date() {
-
+  public function date() {
     $args = func_get_args();
     
     if(count($args) > 1) {
@@ -292,9 +291,7 @@ class Calendar {
       list($year, $month, $day, $hour, $minute, $second) = explode('-', date('Y-m-d-H-i-s', $ts));
       
   	} 
-
     return new CalendarDay($year, $month, $day, $hour, $minute, $second);
-
   }
   
   function today() {
