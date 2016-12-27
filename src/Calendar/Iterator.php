@@ -1,0 +1,93 @@
+<?php
+# NOTICE OF LICENSE
+#
+# This source file is subject to the Open Software License (OSL 3.0)
+# that is available through the world-wide-web at this URL:
+# http://opensource.org/licenses/osl-3.0.php
+#
+# -----------------------
+# @author: Iván Miranda
+# @version: 1.0.0
+# -----------------------
+# PHP Gantt Creator Class
+# -----------------------
+
+namespace Sincco\Tools\Calendar;
+
+class Iterator implements \Iterator {
+
+  private $_ = array();
+
+  public function __construct($array=array()) {
+    $this->_ = $array;
+  }
+      
+  function __toString() {
+    $result = '';
+    foreach($this->_ as $date) {
+      $result .= $date . '<br />';
+    }
+    return $result;
+  }      
+      
+  function rewind() {
+    reset($this->_);
+  }
+
+  function current() {
+    return current($this->_);
+  }
+
+  function key() {
+    return key($this->_);
+  }
+
+  function next() {
+    return next($this->_);
+  }
+
+  function prev() {
+    return prev($this->_);
+  }
+
+  function valid() {
+    $key = key($this->_);
+    $var = ($key !== null && $key !== false);
+    return $var;
+  }
+      
+  function count() {
+    return count($this->_);
+  }  
+
+  function first() {
+    return array_shift($this->_);
+  }
+
+  function last() {
+    return array_pop($this->_);
+  }
+
+  function nth($n) {
+    $values = array_values($this->_);
+    return isset($values[$n]) ? $values[$n] : null;  
+  }
+
+  function indexOf($needle) {
+    return array_search($needle, array_values($this->_));
+  }
+
+  function toArray() {
+    return $this->_;
+  }
+
+  function slice($offset=null, $limit=null) {
+    if($offset === null && $limit === null) return $this;
+    return new Iterator(array_slice($this->_, $offset, $limit));
+  }
+
+  function limit($limit) {
+    return $this->slice(0, $limit);
+  }
+    
+}

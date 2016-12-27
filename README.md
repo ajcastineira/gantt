@@ -32,7 +32,7 @@ $gantti = new Gantti($data, array(
   'cellheight' => 35
 ));
 
-echo $gantti;
+echo $gantti->render();
 
 ?>
 

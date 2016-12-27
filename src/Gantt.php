@@ -14,7 +14,8 @@
 
 namespace Sincco\Tools;
 
-use Sincco\Tools\CalendarIteratorIterator;
+use Sincco\Tools\Calendar\Iterator;
+use Sincco\Tools\GanttStyles;
 
 class Gantt {
 
@@ -39,7 +40,7 @@ class Gantt {
     );
         
     $this->options = array_merge($defaults, $params);    
-    $this->cal     = new CalendarIterator();
+    $this->cal     = new Calendar();
     $this->data    = $data;
     $this->seconds = 60*60*24;
 
@@ -188,7 +189,9 @@ class Gantt {
     // end diagram
     $html[] = '</figure>';
 
-    return implode('', $html);
+    return GanttStyles::base() . GanttStyles::screen() . implode('', $html);
+
+    //return implode('', $html);
       
   }
   
