@@ -221,8 +221,7 @@ final class GanttStyles extends \stdClass {
 
 			header, article {
 			  width: 500px;
-			  margin: 0 auto;
-			  padding: 50px 20px; }
+			  margin: 0 auto; }
 
 			figure {
 			  font-size: 12px;
